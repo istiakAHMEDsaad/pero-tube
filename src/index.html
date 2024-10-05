@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pero Tube</title>
+
+    <!-- !========== Css ==========! -->
+    <link rel="stylesheet" href="../dist/output.css">
+
+    <!-- !========== Fav Icon ==========! -->
+    <link rel="shortcut icon" href="https://learningprofessor.com/wp-content/uploads/2020/03/video-300x300.png"
+        type="image/x-icon">
+
+    <!-- !========== Remix CDN ==========! -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- !========== Font Awesome CDN ==========! -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- !========== Google Font CDN ==========! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="font-inter">
+    <header
+        class="md:container mx-auto px-5 pt-5 md:pt-5 space-y-4 md:space-y-0 md:flex md:justify-between md:items-center">
+        <!-- Logo -->
+        <div class="">
+            <img class="mx-auto" src="./assets/peroTube.gif" alt="Pero Tube Logo">
+        </div>
+
+        <!-- Search Input -->
+        <div>
+            <label class="input input-bordered flex items-center gap-2">
+                <input type="text" class="grow" placeholder="Search" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="h-4 w-4 opacity-70">
+                    <path fill-rule="evenodd"
+                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </label>
+        </div>
+
+        <!-- Blog Button -->
+        <div class="flex justify-center md:flex-none">
+            <button class="border px-7 py-2 bg-red-600 rounded-md text-white hover:bg-red-500 transition-all">
+                Blog
+            </button>
+        </div>
+
+        <!-- Divider -->
+    </header>
+
+    <!-- *Divider -->
+    <div class="md:container mx-auto">
+        <div class="divider"></div>
+    </div>
+
+    <!-- *Categories Button Section -->
+    <section class="md:container mx-auto">
+        <div class="">
+            <nav class="flex items-center justify-center gap-x-4" id="categories-button"></nav>
+        </div>
+    </section>
+
+    <!-- *Video Section -->
+    <main class="md:container mx-auto px-5">
+        <section id="show-video" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 md:gap-4 py-6 md:py-8">
+        </section>
+    </main>
+    <!-- !========== JavaScript ==========! -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
