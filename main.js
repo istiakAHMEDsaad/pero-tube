@@ -6,6 +6,15 @@ const stringToTime = (stringTime) => {
   const second = remainingSecond % 60;
   return `${hours}h ${minutes}m ${second}s`;
 };
+
+// remove active class
+const removeActiveButton = () => {
+  const removeButton = document.getElementsByClassName('category-btn');
+  for(let button of removeButton){
+    button.classList.remove('active-btn');
+  }
+}
+
 // =============== Video categories ===============
 const loadCategories = () => {
   fetch('https://openapi.programming-hero.com/api/phero-tube/categories')
@@ -18,7 +27,14 @@ const loadCategories = () => {
 const loadCategoryByButton = (id) => {
   fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
     .then((response) => response.json())
-    .then((data) => showVideos(data.category))
+    .then((data) => {
+      // remove active
+      removeActiveButton();
+      // id
+      const activeButton = document.getElementById(`btn-${id}`);
+      activeButton.classList.add('active-btn');
+      showVideos(data.category);
+    })
     .catch((error) => console.log(error));
 };
 
@@ -31,7 +47,7 @@ const displayCategories = (categoriesData) => {
     // create button
     const categorieContainer = document.createElement('div');
     categorieContainer.innerHTML = `
-      <button onclick="loadCategoryByButton(${categoriesItem.category_id})" class="btn">
+      <button id="btn-${categoriesItem.category_id}" onclick="loadCategoryByButton(${categoriesItem.category_id})" class="btn category-btn">
         ${categoriesItem.category}
       </button>
     `;
@@ -51,6 +67,20 @@ const loadVideos = () => {
 const showVideos = (showVideosData) => {
   const showVideosContainer = document.getElementById('show-video');
   showVideosContainer.innerHTML = '';
+
+  if(showVideosData.length == 0){
+    showVideosContainer.classList.remove('grid');
+    showVideosContainer.innerHTML = `
+      <div class="min-h-80 flex flex-col items-center justify-center gap-y-4">
+        <img src="./assets/noContentIcon.png" />
+        <p class="text-xl text-gray-600">No Content here in this category 😥</p>
+      </div>
+    `;
+    return;
+  }else{
+    showVideosContainer.classList.add('grid');
+  }
+  // Loop
   showVideosData.forEach((video) => {
     const videoCard = document.createElement('div');
     videoCard.className = 'card card-compact';
